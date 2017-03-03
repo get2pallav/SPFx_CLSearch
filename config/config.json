@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/clSearch/ClSearchWebPart.js",
+      "manifest": "./src/webparts/clSearch/ClSearchWebPart.manifest.json",
+      "outputPath": "./dist/cl-search.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "clSearchStrings": "webparts/clSearch/loc/{locale}.js"
+  }
+}

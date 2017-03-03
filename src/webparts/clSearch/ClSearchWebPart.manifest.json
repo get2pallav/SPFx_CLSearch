@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "6658c349-9388-45b0-87e1-548e164b8d2e",
+  "alias": "ClSearchWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "6658c349-9388-45b0-87e1-548e164b8d2e",
+    "group": { "default": "Under Development" },
+    "title": { "default": "CL_Search" },
+    "description": { "default": "CL SearchWP" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "CL_Search"
+    }
+  }]
+}

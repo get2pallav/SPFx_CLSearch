@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "sp-fx-cl-search-client-side-solution",
+    "id": "bc2b6c69-8924-4aa4-9fec-d479d5125f26",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/sp-fx-cl-search.sppkg"
+  }
+}
