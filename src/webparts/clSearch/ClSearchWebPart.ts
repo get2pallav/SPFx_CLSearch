@@ -1,14 +1,21 @@
-import { Version } from '@microsoft/sp-core-library';
+import { Version,
+Environment,
+EnvironmentType } from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneDropdown,
+  IPropertyPaneDropdownOption,
 } from '@microsoft/sp-webpart-base';
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import styles from './ClSearch.module.scss';
 import * as strings from 'clSearchStrings';
 import { IClSearchWebPartProps } from './IClSearchWebPartProps';
+import {IListService} from './Services/MockResultSourceService';
+import {MockListService} from './Services/MockResultSourceService';
+import {ListService} from './Services/MockResultSourceService';
 
 export default class ClSearchWebPart extends BaseClientSideWebPart<IClSearchWebPartProps> {
 
@@ -28,11 +35,31 @@ export default class ClSearchWebPart extends BaseClientSideWebPart<IClSearchWebP
           </div>
         </div>
       </div>`;
+     (new ListService()).getLists();
   }
+ 
+  public onInit<T>():Promise<T> {
+    debugger;
+    let mockService = Environment.type == EnvironmentType.SharePoint ?  new ListService()  : new MockListService();
+    this._options = [];
+    return new Promise<T>((resolve) => {
+      mockService.getLists().then((lists) => {
+        lists.forEach((list) => {
+            this._options.push(<IPropertyPaneDropdownOption>{
+              text:list,
+            });
+          resolve(undefined);
+        });
+      });
+    });
+  }
+
 
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
+
+  private _options:IPropertyPaneDropdownOption[];
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
@@ -47,6 +74,10 @@ export default class ClSearchWebPart extends BaseClientSideWebPart<IClSearchWebP
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyPaneDropdown('resultsource',{
+                  label:strings.SearchResultSources,
+                  options:this._options
                 })
               ]
             }
