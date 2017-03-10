@@ -1,4 +1,4 @@
 export interface IClSearchWebPartProps {
   description: string;
-  resultsource:string;
+  resultsource: string;
 }

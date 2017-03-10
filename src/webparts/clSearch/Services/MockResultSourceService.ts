@@ -7,7 +7,6 @@ export interface IListService{
 export class MockListService implements IListService{
 
     private static _mockList:string[] = ['List 1','List 2', 'List 3'];
-
     public getLists():Promise<string[]>{
         return new Promise<string[]>((resolve) => {
            resolve(MockListService._mockList);
