@@ -14,7 +14,7 @@
     "description": { "default": "CL SearchWP" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "CL_Search",
+      "description": "Welcome to Search",
       "resultsource": ""
     }
   }]

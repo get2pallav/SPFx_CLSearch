@@ -9,7 +9,9 @@
     "@microsoft/sp-client-base": "~1.0.0",
     "@microsoft/sp-core-library": "~1.0.0",
     "@microsoft/sp-webpart-base": "~1.0.0",
-    "@types/webpack-env": ">=1.12.1 <1.14.0"
+    "@types/webpack-env": ">=1.12.1 <1.14.0",
+    "office-ui-fabric": "^2.6.3",
+    "sp-pnp-js": "^2.0.2"
   },
   "devDependencies": {
     "@microsoft/sp-build-web": "~1.0.0",
